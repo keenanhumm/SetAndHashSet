@@ -1,6 +1,7 @@
 package com.kaytec;
 
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 public final class HeavenlyBody {
@@ -28,5 +29,18 @@ public final class HeavenlyBody {
 
     public boolean addMoon(HeavenlyBody moon) {
         return satellites.add(moon);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        HeavenlyBody that = (HeavenlyBody) o;
+        return getName().equals(that.getName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getName());
     }
 }

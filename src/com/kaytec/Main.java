@@ -9,6 +9,13 @@ public class Main {
     private static Map<String, HeavenlyBody> solarSystem = new HashMap<>();
     private static Set<HeavenlyBody> planets = new HashSet<>();
 
+    private static void printPlanets() {
+        System.out.println("----------PLANETS-----------");
+        for(HeavenlyBody planet: planets) {
+            System.out.println(planet.getName() + ": " + planet.getOrbitalPeriod());
+        }
+    }
+
     public static void main(String[] args) {
         // SETS
         // no order enforced
@@ -43,10 +50,7 @@ public class Main {
         mercury.addMoon(new HeavenlyBody("Elia", 43));
         mercury.addMoon(new HeavenlyBody("Anton", 11));
 
-        System.out.println("PLANETS:");
-        for(HeavenlyBody planet: planets) {
-            System.out.println("\t" + planet.getName());
-        }
+        printPlanets();
 
         // create a union of sets using add all
         Set<HeavenlyBody> allMoons = new HashSet<>();
@@ -60,13 +64,10 @@ public class Main {
             System.out.println("\t" + moon.getName());
         }
 
+        HeavenlyBody earth = new HeavenlyBody("Earth", 365);
+        planets.add(earth);
 
-
-
-
-
-
-
+        printPlanets();
 
 
     }
